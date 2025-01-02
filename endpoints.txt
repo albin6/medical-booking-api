@@ -1,0 +1,37 @@
+1. User Authentication (/auth)
+------------------------------
+POST /api/v_1/auth/login: Login a user (Admin/Doctor/Patient)
+POST /api/v_1/auth/register: Register a new user
+{
+  "name": "Ajith",
+  "email" : "ajith@gmail.com",
+  "password" : "Ajith@123",
+  "speciality" : "Ortho"
+}
+
+2. Doctor Management (/doctor)
+------------------------------
+GET /api/v_1/doctor/:id: Get a doctor’s details
+GET /doctor/:id/schedule: Update doctor’s available slots
+POST /doctor/:id/schedule: Get a doctor’s available slots
+{
+  "day" : "thursday",
+  "time" : "09:30:00"
+}
+
+3. Appointment Management (/appointment)
+----------------------------------------
+POST /api/v_1/appointment/book: Patient books an appointment
+{
+  "doctor" : "677639ad5bcfac199d6486d2",
+  "patient" : "67767c22a0ecd982369ddd47",
+  "slot" : "677674af12763f0fc14a4c2f"
+}
+PUT /api/v_1/appointment/cancel/:id: Cancel an appointment
+GET /api/v_1/appointment/:id: View an appointment's details
+
+4. Admin Dashboard (/admin)
+---------------------------
+GET /api/v_1/admin/doctors: List all doctors
+GET /api/v_1/admin/patients: List all patients
+DELETE /admin/doctor/:id: Remove a doctor
