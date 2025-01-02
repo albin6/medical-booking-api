@@ -16,6 +16,15 @@ export class AppointmentRepository implements IAppointmentRepository {
     );
   }
   async findAppointmentById(id: string): Promise<IAppointment | null> {
-    return await AppointmentModel.findById(id);
+    return await AppointmentModel.findById(id)
+      .populate({
+        path: "patient",
+        select: "-password",
+      })
+      .populate({
+        path: "doctor",
+        select: "-password",
+      })
+      .populate("slot");
   }
 }

@@ -20,7 +20,7 @@ const AppointmentSchema = new mongoose.Schema<IAppointment>(
     },
     status: {
       type: String,
-      default: "pending",
+      default: "Booked",
     },
   },
   { timestamps: true }
